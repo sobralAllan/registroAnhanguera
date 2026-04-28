@@ -81,6 +81,21 @@ public class ControlPessoa {
 		}//fim do catch
 	}//fim do cadastrarTela
 	
+	public void ConsultarBanco() {
+		JOptionPane.showMessageDialog(null, this.dao.listar(), "Consultar", 
+				                      JOptionPane.INFORMATION_MESSAGE);
+	}//fim do consultarBanco
+	
+	public void AtualizarBanco(String codigo, String nome, String dtNascimento) {
+		this.person = new Pessoa(codigo, nome, dtNascimento);
+		JOptionPane.showMessageDialog(null, this.dao.atualizar(this.person), "Atualizar", 
+									JOptionPane.INFORMATION_MESSAGE);
+	}//fim do atualizarBanco
+	
+	public void ExcluirBanco(int codigo) {
+		JOptionPane.showMessageDialog(null, this.dao.excluir(codigo), "Excluir", 
+				                    JOptionPane.INFORMATION_MESSAGE);
+	}//fim do excluir
 	
 	
 	
