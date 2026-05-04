@@ -38,7 +38,7 @@ public class DAO {
 				person.setData(rs.getString("dtNascimento"));
 				msg += "\nCódigo: " + person.getCod()  +
 					   "\nNome: "   + person.getNome() +
-					   "\nData Nascimento: " + person.getData();
+					   "\nData Nascimento: " + person.getData() + "\n\n";
 				lista.add(person);
 			}//fim do while
 		}catch(Exception erro) {
@@ -48,14 +48,14 @@ public class DAO {
 	}//fim do método
 	
 	public String atualizar(Pessoa person) {
-		String sql = "Update pessoa set nome = '?', dtNascimento = '?' where codigo = ?";
+		String sql = "Update pessoa set nome = ?, dtNascimento = ? where codigo = ?";
 		//Tentar executar o código
 		try(Connection con = Conexao.conectar();
 			PreparedStatement stmt = con.prepareStatement(sql)
 		){
-			stmt.setInt(1, person.getCodigo());
-			stmt.setString(2, person.getNome());
-			stmt.setString(3, person.getData());
+			stmt.setString(1, person.getNome());
+			stmt.setString(2, person.getData());
+			stmt.setInt(3, person.getCodigo());
 			
 			stmt.executeUpdate();//Atualiza os dados no banco
 			return "Atualizado!";

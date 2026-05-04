@@ -65,10 +65,10 @@ public class ControlPessoa {
 	}//fim do cadastrar
 	
 	public void cadastrarTela() {
-		int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o código: ", "Código", 
-				        JOptionPane.INFORMATION_MESSAGE));
-		String nome   = JOptionPane.showInputDialog(null, "Informe o nome: ", "Nome", 
-				        JOptionPane.INFORMATION_MESSAGE);
+		int codigo          = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o código: ", "Código", 
+				              JOptionPane.INFORMATION_MESSAGE));
+		String nome         = JOptionPane.showInputDialog(null, "Informe o nome: ", "Nome", 
+				              JOptionPane.INFORMATION_MESSAGE);
 		String dtNascimento = JOptionPane.showInputDialog(null,"Informa a data de nascimento: ", 
 				         "Data Nascimento", JOptionPane.INFORMATION_MESSAGE);
 		//Chamei o construtor da classe Pessoa
@@ -99,13 +99,13 @@ public class ControlPessoa {
 	}//fim do consultarBanco
 	
 	public void AtualizarBanco() {
-		int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o código: ", "Código",	JOptionPane.INFORMATION_MESSAGE));
-		String nome   = JOptionPane.showInputDialog(null, "Informe o nome: ", "Nome", 
-		        		JOptionPane.INFORMATION_MESSAGE);
-		String dtNascimento = JOptionPane.showInputDialog(null,"Informa a data de nascimento: ", 
+		int codigo  = Integer.parseInt(JOptionPane.showInputDialog(null, 
+				     "Informe o código: ", "Código",JOptionPane.INFORMATION_MESSAGE));
+		String nome = JOptionPane.showInputDialog(null, "Informe o nome: ", "Nome", 
+		        	  JOptionPane.INFORMATION_MESSAGE);
+		String dtNascimento = JOptionPane.showInputDialog(null,"Informe a data de nascimento: ", 
 		         "Data Nascimento", JOptionPane.INFORMATION_MESSAGE);
-		
-		
+				
 		this.person = new Pessoa(codigo, nome, dtNascimento);
 		JOptionPane.showMessageDialog(null, this.dao.atualizar(this.person), "Atualizar", 
 									JOptionPane.INFORMATION_MESSAGE);
