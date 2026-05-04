@@ -1,4 +1,4 @@
-package src;
+package registro;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -15,7 +15,19 @@ public class ControlPessoa {
 		this.entrada = new Scanner(System.in);
 		this.person  = new Pessoa();
 		this.dao     = new DAO(); 
-	}//fim do método construtor	
+	}//fim do método construtor
+	
+	public int menu() {
+		//Variável Local
+		int opcao = Integer.parseInt(JOptionPane.showInputDialog(null, "Escolha uma das opções:"
+				+ "\n0. Sair"
+				+ "\n1. Cadastrar"
+				+ "\n2. Consultar" 
+				+ "\n3. Atualizar" 
+				+ "\n4. Excluir", "Menu", 
+				JOptionPane.QUESTION_MESSAGE));
+		return opcao;
+	}//fim do entrada codigo
 	
 	public String entradaCodigo() {
 		//Variável Local
@@ -53,8 +65,8 @@ public class ControlPessoa {
 	}//fim do cadastrar
 	
 	public void cadastrarTela() {
-		String codigo = JOptionPane.showInputDialog(null, "Informe o código: ", "Código", 
-				        JOptionPane.INFORMATION_MESSAGE);
+		int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o código: ", "Código", 
+				        JOptionPane.INFORMATION_MESSAGE));
 		String nome   = JOptionPane.showInputDialog(null, "Informe o nome: ", "Nome", 
 				        JOptionPane.INFORMATION_MESSAGE);
 		String dtNascimento = JOptionPane.showInputDialog(null,"Informa a data de nascimento: ", 
@@ -86,7 +98,14 @@ public class ControlPessoa {
 				                      JOptionPane.INFORMATION_MESSAGE);
 	}//fim do consultarBanco
 	
-	public void AtualizarBanco(String codigo, String nome, String dtNascimento) {
+	public void AtualizarBanco() {
+		int codigo = Integer.parseInt(JOptionPane.showInputDialog(null, "Informe o código: ", "Código",	JOptionPane.INFORMATION_MESSAGE));
+		String nome   = JOptionPane.showInputDialog(null, "Informe o nome: ", "Nome", 
+		        		JOptionPane.INFORMATION_MESSAGE);
+		String dtNascimento = JOptionPane.showInputDialog(null,"Informa a data de nascimento: ", 
+		         "Data Nascimento", JOptionPane.INFORMATION_MESSAGE);
+		
+		
 		this.person = new Pessoa(codigo, nome, dtNascimento);
 		JOptionPane.showMessageDialog(null, this.dao.atualizar(this.person), "Atualizar", 
 									JOptionPane.INFORMATION_MESSAGE);

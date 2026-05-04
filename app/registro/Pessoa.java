@@ -1,4 +1,4 @@
-package src;
+package registro;
 
 import java.time.LocalDate;
 
@@ -21,8 +21,8 @@ public class Pessoa {
 		setDataNascimento(dtNascimento);
 	}//fim do construtor com parâmetros
 	
-	public Pessoa(String codigo, String nome, String dtNascimento) {
-		this.cod = codigo;
+	public Pessoa(int codigo, String nome, String dtNascimento) {
+		this.codigo = codigo;
 		this.nome = nome;
 		this.data = dtNascimento;
 	}//fim do método

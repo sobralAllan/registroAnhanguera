@@ -1,4 +1,4 @@
-package src;
+package registro;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

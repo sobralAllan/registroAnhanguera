@@ -1,4 +1,4 @@
-package src;
+package registro;
 
 import java.sql.*;
 import java.util.*;
@@ -12,7 +12,8 @@ public class DAO {
 			//Inserir os dados no banco
 			stmt.setInt(1, person.getCodigo());
 			stmt.setString(2, person.getNome());
-			stmt.setDate(3, java.sql.Date.valueOf(person.getDataNascimento()));
+			stmt.setString(3, person.getData());
+			//stmt.setDate(3, java.sql.Date.valueOf(person.getDataNascimento()));
 			stmt.executeUpdate();//CTRL+ENTER -> INSERINDO NO BANCO DE DADOS			
 			
 			return "Inserido com sucesso!";
@@ -47,12 +48,12 @@ public class DAO {
 	}//fim do método
 	
 	public String atualizar(Pessoa person) {
-		String sql = "Update pessoa set nome = ?, dtNascimento = ? where codigo = ?";
+		String sql = "Update pessoa set nome = '?', dtNascimento = '?' where codigo = ?";
 		//Tentar executar o código
 		try(Connection con = Conexao.conectar();
 			PreparedStatement stmt = con.prepareStatement(sql)
 		){
-			stmt.setString(1, person.getCod());
+			stmt.setInt(1, person.getCodigo());
 			stmt.setString(2, person.getNome());
 			stmt.setString(3, person.getData());
 			
